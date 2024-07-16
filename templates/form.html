@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+  <div class="card-body">
+  <h5 class="card-title">Telegram settings</h5>
+  <form method="post" action="/settings">
+  <!-- 2 column grid layout with text inputs for the first and last names -->
+      <div data-mdb-input-init class="form-outline mb-4">
+        <input type="text" id="username" name="username" class="form-control" value="{{ context.username }}" />
+        <label class="form-label" for="username">Telegram username</label>
+      </div>
+ 
+      <div data-mdb-input-init class="form-outline mb-4">
+<input type="text" id="api_id" name="api_id" class="form-control" value="{{ context.api_id }}"/>
+        <label class="form-label" for="api_id">API ID</label>
+      </div>
+
+  <!-- Text input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="text" id="api_hash" name="api_hash" class="form-control" value="{{ context.api_hash }}"/>
+    <label class="form-label" for="api_hash">API hash</label>
+  </div>
+
+  <!-- Text input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="number" id="phone" name="phone" class="form-control" value="{{ context.phone }}"/>
+    <label class="form-label" for="phone">Telegram phone number</label>
+  </div>
+  <h5 class="card-title">Wordpress settings</h5>
+  <!-- Email input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="text" id="wp_user" name="wp_user" class="form-control" value="{{ context.wp_user }}"/>
+    <label class="form-label" for="wp_user">Wordpress Username</label>
+  </div>
+
+  <!-- Number input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="url" id="wp_website" name="wp_website" class="form-control" value="{{ context.wp_website }}"/>
+    <label class="form-label" for="wp_website">Wordpress website</label>
+  </div>
+
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="password" id="wp_app_password" name="wp_app_password" class="form-control" value="{{ context.wp_app_password }}"/>
+    <label class="form-label" for="wp_app_password">Wordpress app password</label>
+  </div>
+ {#
+  <!-- Checkbox -->
+  <div class="form-check d-flex justify-content-center mb-4">
+    <input
+      class="form-check-input me-2"
+      type="checkbox"
+      value=""
+      id="form6Example8"
+      checked
+    />
+    <label class="form-check-label" for="form6Example8"> Create an account? </label>
+  </div>#}
+
+  <!-- Submit button -->
+  <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">Save</button>
+</form>
+</div>
+</div>
+{% endblock %}

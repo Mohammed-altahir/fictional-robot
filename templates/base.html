@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Material Design for Bootstrap</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="static/css/mdb.min.css" />
+<link rel="shortcut icon" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/favicon.ico" />
+
+    <link rel="canonical" href="https://mdbootstrap.com/docs/standard/components/alerts/" />
+    <script>
+     window.dataLayer = window.dataLayer || [];
+    </script>
+
+    
+
+    
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "MDBootstrap",
+                "item": "https://mdbootstrap.com/",
+                "image": "https://mdbcdn.b-cdn.net/img/Marketing/mdb-press-pack/mdb-main.webp"
+            }, {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Standard",
+                "item": "https://mdbootstrap.com/docs/standard/",
+                "image": "https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/content/en/_mdb5/standard/about/assets/mdb5-about.webp"
+            }, {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Alerts",
+                "item": "https://mdbootstrap.com/docs/standard/components/alerts/",
+                "image": "https://mdbcdn.b-cdn.net/docs/standard/components/alerts/alerts.jpg"
+            }]
+        }
+    </script>
+
+    <style>
+        #navbarNotification::after {
+            content: none !important;
+        }
+
+         
+        #main-navbar .badge {
+            position: absolute;
+            font-size: .6rem;
+            margin-top: -.1rem;
+            margin-left: -.5rem;
+            padding: .2em .45em;
+        }
+
+         
+        #main-navbar .nav-link {
+            font-size: 1rem !important;
+            font-weight: 400;
+        }
+    </style>
+    <style>
+        [data-mdb-theme="dark"]
+        .docs-pills .btn-copy-code,
+        .docs-tab-content .export-to-snippet {
+            color: #E5E7EB !important;
+        }
+
+        .docs-pills {
+            border-radius: 0.5rem;
+        }
+
+        .docs-pills pre[class*="language-"] {
+            border-bottom-right-radius: 0.5rem;
+            border-bottom-left-radius: 0.5rem;
+        }
+
+        .docs-pills .btn-copy-code,
+        .docs-tab-content .export-to-snippet {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            box-shadow: none !important;
+            color: #616161 !important;
+            background-color: transparent !important;
+            padding: 6px 15px !important;
+        }
+    </style>
+    <style>
+        @media (max-width: 576px) {
+            [id^=dpl-], [class^=dpl-], .mobile-hidden {
+                display: none!important;
+            }
+        }
+    </style>
+
+
+
+    <style>
+        .mdb-skin-custom {
+            transition-duration: .5s;
+            transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,-webkit-text-decoration-color;
+            transition-timing-function: cubic-bezier(.4,0,.2,1);
+        }
+
+    </style>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9068607355646785" crossorigin="anonymous"></script>
+    <script>
+        const pagesExcludedFromDarkTheme = [
+          "docs/angular",
+          "docs/b4/angular",
+          "docs/react",
+          "docs/b4/react",
+          "docs/vue",
+          "docs/b4/vue",
+          "/docs/standard/pro/demo/",
+          "/learn",
+          "/docs/standard/pro/enterprise",
+          "/cart",
+          "/docs/standard/tools/",
+          "/user",
+          "/blog",
+          "/services",
+          "/bootstrap-6",
+          "/bootstrap-6-release-date/",
+          "/general/mdb-edu/"
+        ]
+        const isPageExcludedFromDarkTheme = () => {
+            const currentPage = window.location.pathname
+            return pagesExcludedFromDarkTheme.some(page => currentPage.indexOf(page) !== -1);
+        }
+        const isPageShouldUseDarkTheme = !isPageExcludedFromDarkTheme();
+        const isDarkThemeSetInLocalStorageOrPreferColorScheme =
+            localStorage.theme === "dark" ||
+            (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+
+        try {
+            if (isPageShouldUseDarkTheme && isDarkThemeSetInLocalStorageOrPreferColorScheme) {
+                document.documentElement.dataset.mdbTheme = "dark";
+                document
+                .querySelector('meta[name="theme-color"]')
+                .setAttribute("content", "#0B1120");
+            } else {
+                delete document.documentElement.dataset.mdbTheme;
+            }
+        } catch (_) {}
+      </script>
+  </head>
+  <body>
+    <!-- Flashed messages -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+ 
+   <div class="alert alert-dismissible fade show" role="alert" data-mdb-color="success" data-mdb-alert-init id="customxD">
+          {{ messages[0] }}
+          <button type="button" class="btn-close"
+            data-mdb-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+       {% endif %}
+       {% endwith %}
+    <!-- Flashed messages -->
+    {% block content %}
+    {% endblock %}
+    <!-- MDB -->
+    <script type="text/javascript" src="static/js/mdb.umd.min.js"></script>
+    <!-- Custom scripts -->
+       
+    <script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/docs-app/js/dist/mdb5/standard/core.min.js"></script>
+ 
+    <script type="text/javascript">
+  // Basic examples
+  const triggersBasic = [
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark',
+  ];
+  const instancesBasic = [
+    'alert-primary',
+    'alert-secondary',
+    'alert-success',
+    'alert-danger',
+    'alert-warning',
+    'alert-info',
+    'alert-light',
+    'alert-dark',
+  ];
+
+  triggersBasic.forEach(function (trigger, index) {
+    let instance = mdb.Alert.getInstance(document.getElementById(instancesBasic[index]));
+    document.getElementById(trigger).addEventListener('click', function () {
+      instance.show();
+    });
+  });
+</script>  
+<script>
+  const triggers = [
+    'show-trigger-example',
+    'placement-trigger-example',
+    'container-trigger-example',
+    'offset-trigger-example',
+  ];
+  const instances = ['show-example', 'placement-example', 'container-example', 'offset-example'];
+
+  triggers.forEach(function (trigger, index) {
+    let instance = mdb.Alert.getInstance(document.getElementById(instances[index]));
+    document.getElementById(trigger).addEventListener('click', function () {
+      instance.show();
+    });
+  });
+
+  document.getElementById('hide-trigger-example').addEventListener('click', function () {
+    mdb.Alert.getInstance(document.getElementById('hide-example')).hide();
+  });
+
+  let position = {
+    y: 'top',
+    x: 'right',
+  };
+
+  const positionTrigger = document.getElementById('placement-trigger-example');
+  const positionAlert = mdb.Alert.getInstance(document.getElementById('placement-example'));
+  const display = document.getElementById('positionDisplay');
+
+  ['left', 'right', 'top', 'bottom', 'center'].forEach((trigger) => {
+    document.getElementById(trigger).addEventListener('click', function () {
+      const axis = trigger === 'top' || trigger === 'bottom' ? 'y' : 'x';
+      position[axis] = trigger;
+      positionAlert.update({
+        position: `${position.y}-${position.x}`,
+      });
+      display.textContent = `${position.y}-${position.x}`;
+    });
+  });
+
+  // Stacking
+
+  (function () {
+    let alertCount = 0;
+
+    function* colorGenerator(i) {
+      const colors = ['primary', 'warning', 'info', 'success', 'secondary', 'danger', 'light'];
+
+      while (true) {
+        yield colors[i];
+
+        i++;
+
+        if (i > colors.length - 1) {
+          i = 0;
+        }
+      }
+    }
+
+    const colorIterator = colorGenerator(0);
+
+    document.getElementById('stacking-trigger-example').addEventListener('click', () => {
+      alertCount++;
+      color = colorIterator.next().value;
+
+      const alert = document.createElement('div');
+      alert.innerHTML = `
+    <div class="d-flex justify-content-between">
+      <p class="mb-0"><strong>${alertCount}.</strong> Stacking alert</p>
+      <button
+        type="button"
+        class="btn-close"
+        data-mdb-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    `;
+      alert.classList.add('alert', 'fade');
+
+      document.body.appendChild(alert);
+
+      const alertInstance = new mdb.Alert(alert, {
+        color,
+        stacking: true,
+        hidden: true,
+        width: '450px',
+        position: 'bottom-right',
+        autohide: true,
+        delay: 5000,
+      });
+
+      alertInstance.show();
+    });
+  })();
+
+  // Stacking inside container
+
+  (function () {
+    let alertCount = 0;
+
+    function* colorGenerator(i) {
+      const colors = ['primary', 'warning', 'info', 'success', 'secondary', 'danger', 'light'];
+
+      while (true) {
+        yield colors[i];
+
+        i++;
+
+        if (i > colors.length - 1) {
+          i = 0;
+        }
+      }
+    }
+
+    const colorIterator = colorGenerator(0);
+
+    document.getElementById('stacking-container-trigger-example').addEventListener('click', () => {
+      alertCount++;
+      color = colorIterator.next().value;
+
+      const alert = document.createElement('div');
+      alert.innerHTML = `
+    <div class="d-flex justify-content-between">
+      <p class="mb-0"><strong>${alertCount}.</strong> Stacking alert</p>
+      <button
+        type="button"
+        class="btn-close"
+        data-mdb-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    `;
+      alert.classList.add('alert', 'fade');
+
+      document.getElementById('parent-stacking-container-example').appendChild(alert);
+
+      const alertInstance = new mdb.Alert(alert, {
+        color,
+        stacking: true,
+        container: '#parent-stacking-container-example',
+        hidden: true,
+        width: '250px',
+        position: 'top-right',
+        autohide: true,
+        delay: 5000,
+      });
+
+      alertInstance.show();
+    });
+  })();
+</script>
+
+    
+
+
+</body>
+</html>
